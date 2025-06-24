@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         .trim();
 
                     // const imageUrl = `https://raw.githubusercontent.com/ProjectInfinity-X/official_devices/master/devices/img/${deviceData.codename}.png`;
-                    const imageUrl = `https://raw.githubusercontent.com/GenesisOS/Website-Data/v2/devices/roster/pong/pong.png`;
+                    const imageUrl = `https://raw.githubusercontent.com/GenesisOS/Website-Data/v2/devices/roster/${deviceData.codename}/${deviceData.codename}.png`;
 
                     deviceCard.innerHTML = `
                     <h3 class="device_name">${
