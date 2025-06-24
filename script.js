@@ -1,23 +1,17 @@
-const isDev = true;
-
-if (!isDev) {
-    window.onload = function () {
+window.onload = function () {
+    setTimeout(() => {
+        const logobg = document.querySelector("#lodaer .logobg");
+        logobg.style.opacity = "0";
         setTimeout(() => {
-            const logobg = document.querySelector("#lodaer .logobg");
-            logobg.style.opacity = "0";
+            const lodaerDiv = document.getElementById("lodaer");
+            lodaerDiv.style.background = "#00000000";
+            lodaerDiv.style.backdropFilter = "blur(0px)";
             setTimeout(() => {
-                lodaerDiv.style.background = "#00000000";
-                lodaerDiv.style.backdropFilter = "blur(0px)";
-                setTimeout(() => {
-                    lodaerDiv.style.display = "none";
-                }, 1000);
-            }, 500);
-        }, 7000);
-    };
-}else{
-    const lodaerDiv = document.getElementById("lodaer");
-    lodaerDiv.style.display = "none";
-}
+                lodaerDiv.style.display = "none";
+            }, 1000);
+        }, 500);
+    }, 7000);
+};
 
 document.addEventListener("DOMContentLoaded", function () {
     const devicesContainer = document.getElementById("devices_container");
@@ -98,13 +92,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     const imageUrl = `https://raw.githubusercontent.com/GenesisOS/Website-Data/v2/devices/roster/pong/pong.png`;
 
                     deviceCard.innerHTML = `
-                    <div class="device_image">
-                        <img src="${imageUrl}" alt="${deviceData.devicemodel}"/>
-                    </div>
-                    <div class="device_content">
-                        <h3>${deviceData.codename}</h3>
-                        <p>${deviceData.devicemodel}</p>
-                    </div>
+                    <h3 class="device_name">${
+                        deviceData.codename.split("/")[0]
+                    }</h3>
+                    <p class="device_model">${deviceData.devicemodel}</p>
+                    <img src="${imageUrl}" class="device_image" alt="${
+                        deviceData.devicemodel
+                    }"/>
                 `;
 
                     devicesContainer.appendChild(deviceCard);

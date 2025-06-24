@@ -18,7 +18,7 @@
     top: 0;
     transition: 0.1s;
     border-radius: 100%;
-    box-shadow: 0 0 400px 80px #2079fff0;
+    box-shadow: 0 0 400px 80px #2079fff1;
 }
 * {
     margin: 0;
@@ -230,7 +230,7 @@ a {
     object-fit: cover;
     object-position: top;
     mix-blend-mode: lighten;
-    opacity: 0.4;
+    opacity: 0.3;
     z-index: -1;
     aspect-ratio: 16/10.5;
 }
@@ -417,6 +417,7 @@ a {
     backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .device_card:hover {
@@ -424,44 +425,35 @@ a {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.device_image {
-    width: 100%;
-    height: 180px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.device_image img {
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.device_card:hover .device_image img {
+.device_card:hover img {
     transform: scale(1.05);
 }
 
-.device_content {
-    padding: 1.5rem;
-    text-align: center;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.device_content h3 {
-    font-weight: bold;
+.device_card h3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    transform: translate(-50%, -50%);
     background: linear-gradient(90deg, var(--primary) 50%, var(--dark) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 1.25rem;
-    margin: 0 0 0.5rem;
+    font-size: 10rem;
+    width: 100%;
+    text-align: center;
 }
-.device_content p {
+.device_card p {
+    position: absolute;
+    top: 84%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
     color: var(--light);
+    font-size: 1.5rem;
+    width: 100%;
+    mix-blend-mode: difference;
+    text-align: center;
 }
 
 .device_actions {
