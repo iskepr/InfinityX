@@ -1,3 +1,24 @@
+const isDev = true;
+
+if (!isDev) {
+    window.onload = function () {
+        setTimeout(() => {
+            const logobg = document.querySelector("#lodaer .logobg");
+            logobg.style.opacity = "0";
+            setTimeout(() => {
+                lodaerDiv.style.background = "#00000000";
+                lodaerDiv.style.backdropFilter = "blur(0px)";
+                setTimeout(() => {
+                    lodaerDiv.style.display = "none";
+                }, 1000);
+            }, 500);
+        }, 7000);
+    };
+}else{
+    const lodaerDiv = document.getElementById("lodaer");
+    lodaerDiv.style.display = "none";
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     const devicesContainer = document.getElementById("devices_container");
     if (devicesContainer) {
@@ -81,59 +102,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         <img src="${imageUrl}" alt="${deviceData.devicemodel}"/>
                     </div>
                     <div class="device_content">
-                        <h3>${deviceData.devicemodel}</h3>
-                        <div class="device_codename">${
-                            deviceData.codename
-                        }</div>
-                        
-                        <div class="device_meta">
-                            <div class="meta_item">
-                                <i class="fas fa-user"></i>
-                                <span>${maintainerName}</span>
-                            </div>
-                            ${
-                                deviceData.maintainerurl
-                                    ? `
-                            <div class="meta_item">
-                                <i class="fas fa-link"></i>
-                                <a href="${deviceData.maintainerurl}" target="_blank" rel="noopener noreferrer">Profile</a>
-                            </div>`
-                                    : ""
-                            }
-                            ${
-                                deviceData.supportgrouprul
-                                    ? `
-                            <div class="meta_item">
-                                <i class="fab fa-telegram"></i>
-                                <a href="${deviceData.supportgrouprul}" target="_blank" rel="noopener noreferrer">Support Group</a>
-                            </div>`
-                                    : ""
-                            }
-                        </div>
-                        
-                        ${
-                            deviceData.donateurl1 || deviceData.donateurl2
-                                ? `
-                        <div class="device_actions">
-                            ${
-                                deviceData.donateurl1
-                                    ? `
-                            <a href="${deviceData.donateurl1}" class="btn btn_sm btn_donate" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-paypal"></i> Donate
-                            </a>`
-                                    : ""
-                            }
-                            ${
-                                deviceData.donateurl2
-                                    ? `
-                            <a href="${deviceData.donateurl2}" class="btn btn_sm btn_donate" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-coffee"></i> Ko-fi
-                            </a>`
-                                    : ""
-                            }
-                        </div>`
-                                : ""
-                        }
+                        <h3>${deviceData.codename}</h3>
+                        <p>${deviceData.devicemodel}</p>
                     </div>
                 `;
 
@@ -145,9 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="error_message">
                     <i class="fas fa-exclamation-triangle"></i>
                     <p>Failed to load devices. Please try again later.</p>
-                    <button class="btn btn_retry" onclick="window.location.reload()">
-                        <i class="fas fa-sync-alt"></i> Retry
-                    </button>
+                    <button class="btn btn_retry" onclick="window.location.reload()">Retry</button>
                 </div>
             `;
             }
@@ -178,15 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // cursor animation
 const ua = navigator.userAgent;
 if (!/mobile|tablet|ipad|playbook|silk/i.test(ua)) {
-    let cursor = document.createElement("div");
-    cursor.setAttribute("id", "cursor");
-    cursor.style = `
-      position: fixed;
-      top: 0;
-      transition: 0.1s;
-      border-radius: 100%;
-      box-shadow: 0 0 400px 80px #2079fff0;`;
-    document.body.appendChild(cursor);
+    let cursor = document.getElementById("cursor");
 
     const mouse = { x: 0, y: 0 };
     const circle = { x: 0, y: 0 };

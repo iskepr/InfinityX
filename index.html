@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InfinityX</title>
-    <link rel="shortcut icon" href="assets/infinityX.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/InfinityX.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -15,10 +15,14 @@
         <div class="grid_overlay"></div>
     </div>
 
+    <div id="lodaer">
+        <img src="assets/resized.gif" alt="InfinityX" class="logobg">
+    </div>
+
     <header class="header">
         <div class="container">
             <a href="/" class="logo">
-                <img src="assets/infinityX.png" width="40" alt="InfinityX">
+                <img src="assets/InfinityX.png" width="40" alt="InfinityX">
                 <span class="logo_text">InfinityX</span>
             </a>
             <nav class="nav">
@@ -39,6 +43,8 @@
 
     <main>
         <section class="hero">
+            <div id="cursor"></div>
+            <img src="assets/resized.gif" alt="InfinityX" class="logobg">
             <div class="container">
                 <h1 class="hero_title">
                     <span>Unleashing</span>
@@ -58,7 +64,7 @@
         <section id="devices" class="devices_section">
             <div class="container">
                 <h2>Supported Devices</h2>
-                <div id="devices_container" class="devices_grid">Loading devices...</div>
+                <div id="devices_container" class="devices_grid"></div>
             </div>
         </section>
     </main>
@@ -66,6 +72,7 @@
     <footer class="footer">
         <div class="container">
             <p>&copy; 2025 InfinityX Project. All rights reserved.</p>
+            <p>Code by <a href="https://iskepr.github.io/">Skepr</a>.</p>
         </div>
     </footer>
 

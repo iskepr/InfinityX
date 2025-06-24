@@ -1,7 +1,7 @@
 /* Base Styles */
 :root {
     --primary: #6366f1;
-    --primary-dark: #4f46e5;
+    --primary-dark: #7628dd;
     --secondary: #10b981;
     --dark: #0f172a;
     --darker: #0a0f1f;
@@ -13,6 +13,13 @@
     width: 0;
 }
 
+#cursor {
+    position: fixed;
+    top: 0;
+    transition: 0.1s;
+    border-radius: 100%;
+    box-shadow: 0 0 400px 80px #2079fff0;
+}
 * {
     margin: 0;
     padding: 0;
@@ -43,6 +50,33 @@ body {
 a {
     color: var(--primary);
     text-decoration: none;
+}
+
+#lodaer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0a0f1f;
+    backdrop-filter: blur(100px);
+    z-index: 1000;
+    transition: 1s ease-in-out;
+}
+#lodaer .logobg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    object-fit: cover;
+    object-position: top;
+    mix-blend-mode: lighten;
+    aspect-ratio: 16/13;
+    transition: 1s ease-in-out;
 }
 
 /* Background & Grid Overlay */
@@ -79,7 +113,7 @@ a {
     width: calc(100% - 40px);
     padding: 10px;
     margin: 0 20px;
-    z-index: 1000;
+    z-index: 10;
     background: #0f172a9c;
     backdrop-filter: blur(5px);
     border-bottom: 1px solid #ffffff25;
@@ -110,7 +144,7 @@ a {
     font-weight: 500;
     position: relative;
 }
-.nav a:hover{
+.nav a:hover {
     color: var(--secondary);
     transform: translateY(-2px);
     text-shadow: 0 4px 20px var(--primary);
@@ -185,6 +219,20 @@ a {
         transform: scale(1.1);
         opacity: 0.8;
     }
+}
+
+.hero .logobg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+    mix-blend-mode: lighten;
+    opacity: 0.4;
+    z-index: -1;
+    aspect-ratio: 16/10.5;
 }
 
 .hero .container {
@@ -362,11 +410,10 @@ a {
 
 /* Device Card */
 .device_card {
-    background: rgba(30, 41, 59, 0.6);
-    border-radius: 20px;
+    background: linear-gradient(135deg, #1e293bcc, #0f172a49);
+    border-radius: 30px;
     overflow: hidden;
     transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
@@ -375,18 +422,12 @@ a {
 .device_card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    border-color: rgba(99, 102, 241, 0.3);
 }
 
 .device_image {
     width: 100%;
     height: 180px;
     overflow: hidden;
-    background: linear-gradient(
-        135deg,
-        rgba(30, 41, 59, 0.8),
-        rgba(15, 23, 42, 0.8)
-    );
     display: flex;
     align-items: center;
     justify-content: center;
@@ -404,57 +445,23 @@ a {
 
 .device_content {
     padding: 1.5rem;
+    text-align: center;
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
 .device_content h3 {
+    font-weight: bold;
+    background: linear-gradient(90deg, var(--primary) 50%, var(--dark) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-size: 1.25rem;
     margin: 0 0 0.5rem;
+}
+.device_content p {
     color: var(--light);
-}
-
-.device_codename {
-    font-family: "Fira Code", "Courier New", monospace;
-    font-size: 0.85rem;
-    color: var(--gray);
-    margin-bottom: 1rem;
-    background: rgba(99, 102, 241, 0.1);
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    border-radius: 12px;
-    font-weight: 500;
-}
-
-.device_meta {
-    margin: 1rem 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.meta_item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: var(--gray);
-    font-size: 0.9rem;
-}
-
-.meta_item i {
-    width: 20px;
-    text-align: center;
-    color: var(--primary);
-}
-
-.meta_item a {
-    color: var(--light);
-    transition: color 0.2s ease;
-}
-
-.meta_item a:hover {
-    color: var(--primary);
 }
 
 .device_actions {
@@ -506,6 +513,9 @@ a {
 @media (max-width: 1024px) {
     .hero_title {
         font-size: 3.5rem;
+    }
+    #lodaer .logobg {
+        width: 70%;
     }
 }
 
