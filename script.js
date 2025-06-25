@@ -189,7 +189,7 @@ function GlobalUI() {
     document.querySelector("header").innerHTML = `
             <div class="container">
             <a href="/" class="logo">
-                <img src="../assets/InfinityX.png" width="40" alt="InfinityX">
+                <img src="../assets/InfinityX.png" onerror="this.onerror=null; this.src='./assets/InfinityX.png';" width="40" alt="InfinityX">
                 <span class="logo_text">InfinityX</span>
             </a>
             <nav class="nav">
