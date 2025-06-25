@@ -1,4 +1,4 @@
-window.onload = function () {
+document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
         const logobg = document.querySelector("#lodaer .logobg");
         logobg.style.opacity = "0";
@@ -9,11 +9,30 @@ window.onload = function () {
             setTimeout(() => {
                 lodaerDiv.style.display = "none";
             }, 1000);
+            setTimeout(() => {
+                document.querySelector(".hero .container").style.transform =
+                    "translateY(0)";
+                setTimeout(() => {
+                    document.querySelector(
+                        ".hero .hero_title"
+                    ).style.transform = "translateY(0)";
+                    setTimeout(() => {
+                        document.querySelector(
+                            ".hero .hero_description"
+                        ).style.transform = "translateY(0)";
+                        setTimeout(() => {
+                            document.querySelector(
+                                ".hero .cta_buttons"
+                            ).style.transform = "translateY(0)";
+                        }, 100);
+                    }, 200);
+                }, 200);
+            }, 300);
         }, 500);
     }, 7000);
-};
+});
 
-document.addEventListener("DOMContentLoaded", function () {
+function loadDevices() {
     const devicesContainer = document.getElementById("devices_container");
     if (devicesContainer) {
         const loadingElement = document.createElement("div");
@@ -27,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
         devicesContainer.innerHTML = "";
         devicesContainer.appendChild(loadingElement);
 
-        async function loadDevices() {
+        async function loadDevicesData() {
             const repoApiUrl =
                 "https://api.github.com/repos/ProjectInfinity-X/official_devices/contents/devices";
             const baseRawUrl =
@@ -80,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Render devices
                 devices.forEach((deviceData, index) => {
                     const deviceCard = document.createElement("a");
-                    deviceCard.className = "device_card";
+                    deviceCard.className = "DeviceCard";
                     deviceCard.href = "Download/?device=" + deviceData.filename;
 
                     // Format maintainer name (remove email if present)
@@ -96,9 +115,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         deviceData.codename.split("/")[0]
                     }</h3>
                     <p class="device_model">${deviceData.devicemodel}</p>
-                    <img src="${imageUrl}" class="device_image" alt="${
-                        deviceData.devicemodel
-                    }"/>
+                    <img src="${imageUrl}" onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/GenesisOS/Website-Data/v2/devices/roster/pong/pong.png';"
+                    class="device_image" alt="${deviceData.devicemodel}"/>
                 `;
 
                     devicesContainer.appendChild(deviceCard);
@@ -133,9 +151,10 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         // Initialize the page
-        loadDevices();
+        loadDevicesData();
     }
-});
+}
+loadDevices();
 
 // cursor animation
 const ua = navigator.userAgent;
@@ -165,3 +184,28 @@ if (!/mobile|tablet|ipad|playbook|silk/i.test(ua)) {
 
     tick();
 }
+
+function GlobalUI() {
+    document.querySelector("header").innerHTML = `
+            <div class="container">
+            <a href="/" class="logo">
+                <img src="../assets/InfinityX.png" width="40" alt="InfinityX">
+                <span class="logo_text">InfinityX</span>
+            </a>
+            <nav class="nav">
+                <a href="/#features">Features</a>
+                <a href="/#devices">Devices</a>
+                <a href="/#Screenshots">Screenshots</a>
+            </nav>
+            <div class="header_actions">
+                <a href="https://github.com/ProjectInfinity-X" target="_blank" class="social_icon">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://t.me/ProjectInfinityX" target="_blank" class="social_icon">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="#donate" class="donate_btn">Donate</a>
+            </div>
+        </div>`;
+}
+GlobalUI();

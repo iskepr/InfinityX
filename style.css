@@ -223,7 +223,7 @@ a {
 
 .hero .logobg {
     position: absolute;
-    top: 50%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
@@ -236,8 +236,16 @@ a {
 }
 
 .hero .container {
+    transform: translateY(50%);
+    transition: all 1s ease-in-out;
     max-width: 800px;
     text-align: center;
+}
+.hero .cta_buttons,
+.hero .hero_description,
+.hero .hero_title {
+    transition: all 1s ease-in-out;
+    transform: translateY(50%);
 }
 
 .hero_title {
@@ -409,7 +417,7 @@ a {
 }
 
 /* Device Card */
-.device_card {
+.DeviceCard {
     background: linear-gradient(135deg, #1e293bcc, #0f172a49);
     border-radius: 30px;
     overflow: hidden;
@@ -420,16 +428,16 @@ a {
     position: relative;
 }
 
-.device_card:hover {
+.DeviceCard:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.device_card:hover img {
+.DeviceCard:hover img {
     transform: scale(1.05);
 }
 
-.device_card h3 {
+.DeviceCard h3 {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -439,11 +447,11 @@ a {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 10rem;
+    font-size: 8rem;
     width: 100%;
     text-align: center;
 }
-.device_card p {
+.DeviceCard p {
     position: absolute;
     top: 84%;
     left: 50%;
@@ -512,16 +520,19 @@ a {
 }
 
 @media (max-width: 768px) {
-    .nav {
+    .nav,
+    .donate_btn {
         display: none;
     }
-
     .hero_title {
         font-size: 2.75rem;
     }
-
     .hero_description {
         font-size: 1.1rem;
+    }
+    .hero .logobg {
+        width: 150%;
+        top: 50%;
     }
 
     .cta_buttons {
@@ -531,16 +542,5 @@ a {
 
     .btn {
         width: 100%;
-    }
-}
-
-/* Animations */
-@keyframes float {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
     }
 }
