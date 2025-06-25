@@ -1,6 +1,5 @@
-section {
-    height: fit-content;
-    padding: 0;
+.DevicesSection{
+    padding-top: 80px;
 }
 .DevicesSection h2 {
     margin-bottom: 0;
@@ -14,8 +13,9 @@ section {
 
 .DevicePage .left img {
     width: 100%;
-    height: 100%;
+    aspect-ratio: 2/3;
     object-fit: cover;
+    object-position: top;
 }
 
 .DevicePage .right {

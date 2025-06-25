@@ -53,10 +53,6 @@ a {
     color: var(--primary);
     text-decoration: none;
 }
-section {
-    height: 100vh;
-    padding-top: 80px;
-}
 
 #lodaer {
     position: fixed;
@@ -328,6 +324,10 @@ section {
 }
 
 /* Features Section */
+.FeaturesSection {
+    height: 100vh;
+    padding-top: 80px;
+}
 .FeaturesSection .container {
     height: 85%;
 }
@@ -382,7 +382,7 @@ section {
 .FeaturesGrid .right .bottom .feature {
     border: none;
     background: #6366f1aa;
-    transition: .5s ease-in-out;
+    transition: 0.5s ease-in-out;
 }
 .FeaturesGrid .right .bottom .feature:hover {
     box-shadow: 0 10px 30px #00000033;
@@ -413,7 +413,7 @@ section {
     background: #ffffff0d;
     border-color: #ffffff1a;
 }
-.feature .light{
+.feature .light {
     position: absolute;
     top: 0;
     left: 0;
@@ -428,7 +428,7 @@ section {
 .feature i {
     font-size: 2rem;
     color: var(--primary);
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
     display: inline-block;
     transition: all 0.3s ease;
 }
@@ -447,12 +447,12 @@ section {
 .feature h3 {
     font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
     color: white;
 }
 .feature p {
     color: var(--gray);
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
     font-size: 0.95rem;
     line-height: 1.7;
 }
@@ -473,7 +473,7 @@ section {
     color: var(--primary);
     font-size: 1.2rem;
     letter-spacing: 2px;
-    transition: .5s ease-in-out;
+    transition: 0.5s ease-in-out;
     opacity: 0;
 }
 .feature:hover.feature-highlight::after {
@@ -485,14 +485,14 @@ section {
     .FeaturesGrid {
         flex-direction: column;
     }
-    .feature{
+    .feature {
         padding: 1rem;
     }
-    .feature h3{
+    .feature h3 {
         font-size: 1rem;
         margin-bottom: 0;
     }
-    .feature i{
+    .feature i {
         font-size: 1.5rem;
     }
     .FeaturesGrid .left {

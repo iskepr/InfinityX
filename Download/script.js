@@ -62,10 +62,12 @@ async function loadDeviceData(deviceName) {
         deviceCard.className = "DevicePage";
 
         fetchDeviceImage(deviceData.codename.split("/")[0]).then((imageUrl) => {
+            console.log(deviceData);
             deviceCard.innerHTML = `
             <div class="left">
-                <img src="${imageUrl}" onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/GenesisOS/Website-Data/v2/devices/roster/pong/pong.png';"
-                    class="device_image" alt="${deviceData.devicemodel}"/>
+                <img src="${imageUrl}" class="device_image" alt="${
+                deviceData.devicemodel
+            }"/>
             </div>
             <div class="right">
                 <div class="device_meta">
@@ -73,10 +75,10 @@ async function loadDeviceData(deviceName) {
                         <h3>Device Name</h3>
                         <span>${deviceData.devicemodel}</span>
                     </div>
-                    <div class="item">
+                    <a href="${deviceData.maintainerurl}" target="_blank" class="item">
                         <h3>Maintainer</h3>
                         <span>${deviceData.maintainer}</span>
-                    </div>
+                    </a>
                     <div class="item">
                         <h3>Version</h3>
                         ${
