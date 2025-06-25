@@ -1,35 +1,38 @@
 document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(() => {
-        const logobg = document.querySelector("#lodaer .logobg");
-        logobg.style.opacity = "0";
+    if (document.getElementById("lodaer")) {
         setTimeout(() => {
-            const lodaerDiv = document.getElementById("lodaer");
-            lodaerDiv.style.background = "#00000000";
-            lodaerDiv.style.backdropFilter = "blur(0px)";
+            const logobg = document.querySelector("#lodaer .logobg");
+            logobg.style.opacity = "0";
             setTimeout(() => {
-                lodaerDiv.style.display = "none";
-            }, 1000);
-            setTimeout(() => {
-                document.querySelector(".hero .container").style.transform =
-                    "translateY(0)";
+                const lodaerDiv = document.getElementById("lodaer");
+                lodaerDiv.style.background = "#00000000";
+                lodaerDiv.style.backdropFilter = "blur(0px)";
                 setTimeout(() => {
-                    document.querySelector(
-                        ".hero .hero_title"
-                    ).style.transform = "translateY(0)";
+                    lodaerDiv.style.display = "none";
+                }, 1000);
+                setTimeout(() => {
+                    document.querySelector(".hero .container").style.transform =
+                        "translateY(0)";
                     setTimeout(() => {
                         document.querySelector(
-                            ".hero .hero_description"
+                            ".hero .hero_title"
                         ).style.transform = "translateY(0)";
                         setTimeout(() => {
                             document.querySelector(
-                                ".hero .cta_buttons"
+                                ".hero .hero_description"
                             ).style.transform = "translateY(0)";
+                            setTimeout(() => {
+                                document.querySelector(
+                                    ".hero .cta_buttons"
+                                ).style.transform = "translateY(0)";
+                            }, 500);
                         }, 500);
-                    }, 500);
+                    }, 300);
                 }, 300);
-            }, 300);
-        }, 500);
-    }, 7000);
+            }, 500);
+            LoadScreenshots();
+        }, 7000);
+    }
 });
 
 function loadDevices() {
@@ -198,7 +201,7 @@ function LoadScreenshots() {
                 },
                 loop: true,
                 autoplay: {
-                    delay: 3000,
+                    delay: 7000,
                     disableOnInteraction: false,
                 },
                 pagination: {
@@ -243,7 +246,6 @@ function LoadScreenshots() {
         }
     }
 }
-LoadScreenshots();
 
 // cursor animation
 const ua = navigator.userAgent;
@@ -282,9 +284,9 @@ function GlobalUI() {
                 <span class="logo_text">InfinityX</span>
             </a>
             <nav class="nav">
-                <a href="/#features">Features</a>
+                <a href="/#Features">Features</a>
                 <a href="/#Screenshots">Screenshots</a>
-                <a href="/#devices">Devices</a>
+                <a href="/#Devices">Devices</a>
             </nav>
             <div class="header_actions">
                 <a href="https://github.com/ProjectInfinity-X" target="_blank" class="social_icon">
