@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InfinityX</title>
     <link rel="shortcut icon" href="assets/InfinityX.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -31,12 +32,23 @@
                     <span class="gradient_text">Boundless Possibilities!</span>
                 </h1>
                 <p class="hero_description">
-                    The Infinity-X Project introduces you to a world of endless customizations and useful Android
-                    features.
-                    Project Infinity-X is based on Android Open Source Project and currently running on Android 16.
+                    Project Infinity X is an AOSP custom ROM that brings refined performance, stunning visuals and
+                    endless customization to your Android device. Built on stability and designed for enthusiasts.
                 </p>
                 <div class="cta_buttons">
                     <a href="#features" class="btn btn_primary">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="Screenshots">
+            <div class="container">
+                <h2>Screenshots</h2>
+                <div class="screenshots-slider">
+                    <div class="swiper swiper-coverflow swiper-3d SSSwiper">
+                        <div class="swiper-wrapper" id="screenshotsContainer"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -56,6 +68,8 @@
         </div>
     </footer>
 
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 

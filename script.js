@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             document.querySelector(
                                 ".hero .cta_buttons"
                             ).style.transform = "translateY(0)";
-                        }, 100);
-                    }, 200);
-                }, 200);
+                        }, 500);
+                    }, 500);
+                }, 300);
             }, 300);
         }, 500);
     }, 7000);
@@ -156,6 +156,95 @@ function loadDevices() {
 }
 loadDevices();
 
+function LoadScreenshots() {
+    let screenshotsSwiper;
+    const screenshotsContainer = document.getElementById(
+        "screenshotsContainer"
+    );
+    if (screenshotsContainer) {
+        for (let i = 1; i <= 10; i++) {
+            const slideDiv = document.createElement("div");
+            slideDiv.className = "swiper-slide";
+
+            const slideContent = document.createElement("div");
+            slideContent.className = "swiper-slide-content";
+
+            const img = document.createElement("img");
+            img.src = `https://projectinfinity-x.com/ss-${i}.png`;
+            img.alt = `Screenshot ${i} - InfinityX Roms`;
+            img.loading = "lazy";
+
+            slideContent.appendChild(img);
+            slideDiv.appendChild(slideContent);
+            screenshotsContainer.appendChild(slideDiv);
+        }
+
+        if (typeof Swiper !== "undefined") {
+            if (screenshotsSwiper) {
+                screenshotsSwiper.destroy(true, true);
+            }
+
+            screenshotsSwiper = new Swiper(".SSSwiper", {
+                effect: "coverflow",
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: "auto",
+                coverflowEffect: {
+                    rotate: 0,
+                    stretch: 0,
+                    depth: 500,
+                    modifier: 1,
+                    slideShadows: true,
+                },
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                    dynamicBullets: true,
+                },
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1.2,
+                        spaceBetween: 20,
+                        coverflowEffect: {
+                            rotate: 0,
+                            stretch: 0,
+                            depth: 300,
+                            modifier: 1,
+                        },
+                    },
+                    640: {
+                        slidesPerView: 1.5,
+                        spaceBetween: 30,
+                    },
+                    1024: {
+                        slidesPerView: 2.5,
+                        spaceBetween: 40,
+                    },
+                    1280: {
+                        slidesPerView: 3,
+                        spaceBetween: 50,
+                    },
+                },
+                on: {
+                    init: function () {
+                        // Add shadow elements for 3D effect
+                        this.slides.forEach((slide) => {
+                            slide.style.transform =
+                                "translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg)";
+                        });
+                    },
+                },
+            });
+        }
+    }
+}
+LoadScreenshots();
+
 // cursor animation
 const ua = navigator.userAgent;
 if (!/mobile|tablet|ipad|playbook|silk/i.test(ua)) {
@@ -194,8 +283,8 @@ function GlobalUI() {
             </a>
             <nav class="nav">
                 <a href="/#features">Features</a>
-                <a href="/#devices">Devices</a>
                 <a href="/#Screenshots">Screenshots</a>
+                <a href="/#devices">Devices</a>
             </nav>
             <div class="header_actions">
                 <a href="https://github.com/ProjectInfinity-X" target="_blank" class="social_icon">
