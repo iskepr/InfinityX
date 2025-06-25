@@ -61,9 +61,8 @@ async function loadDeviceData(deviceName) {
         const deviceCard = document.createElement("div");
         deviceCard.className = "DevicePage";
 
-        const imageUrl = `https://raw.githubusercontent.com/GenesisOS/Website-Data/v2/devices/roster/${deviceData.codename}/${deviceData.codename}.png`;
-
-        deviceCard.innerHTML = `
+        fetchDeviceImage(deviceData.codename.split("/")[0]).then((imageUrl) => {
+            deviceCard.innerHTML = `
             <div class="left">
                 <img src="${imageUrl}" onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/GenesisOS/Website-Data/v2/devices/roster/pong/pong.png';"
                     class="device_image" alt="${deviceData.devicemodel}"/>
@@ -146,16 +145,17 @@ async function loadDeviceData(deviceName) {
             </div>
         `;
 
-        deviceContainer.appendChild(deviceCard);
+            deviceContainer.appendChild(deviceCard);
 
-        const ChangelogContainer =
-            document.getElementById("ChangelogContainer");
-        const HowtoFlashContainer = document.getElementById(
-            "HowtoFlashContainer"
-        );
+            const ChangelogContainer =
+                document.getElementById("ChangelogContainer");
+            const HowtoFlashContainer = document.getElementById(
+                "HowtoFlashContainer"
+            );
 
-        ChangelogContainer.innerHTML = DataChangelog;
-        HowtoFlashContainer.innerHTML = DataHowtoflash;
+            ChangelogContainer.innerHTML = DataChangelog;
+            HowtoFlashContainer.innerHTML = DataHowtoflash;
+        });
     } catch (error) {
         console.error("فشل في تحميل البيانات:", error.message);
     }

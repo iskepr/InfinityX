@@ -1,0 +1,76 @@
+.DevicesSection {
+    padding: 6rem 0;
+    background: rgba(15, 23, 42, 0.5);
+    position: relative;
+}
+
+.DevicesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.DeviceCard {
+    background: linear-gradient(135deg, #1e293bcc, #0f172a49);
+    border-radius: 30px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.DeviceCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.DeviceCard img {
+    aspect-ratio: 1;
+    width: 70%;
+    transform: translateY(20px);
+    margin-top: 20px;
+    margin: auto;
+    object-fit: cover;
+    object-position: top;
+}
+
+.DeviceCard:hover img {
+    transform: scale(1.05);
+}
+
+.DeviceCard h3 {
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    transform: translate(-50%, -50%); */
+    background: linear-gradient(90deg, var(--primary) 50%, var(--dark) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3rem;
+    width: 100%;
+    text-align: center;
+}
+.DeviceCard p {
+    position: absolute;
+    top: 84%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    color: var(--light);
+    font-size: 1.5rem;
+    width: 100%;
+    mix-blend-mode: difference;
+    text-align: center;
+}
+
+.device_actions {
+    margin-top: auto;
+    display: flex;
+    gap: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
