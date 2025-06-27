@@ -168,9 +168,9 @@ function GlobalUI() {
                 <span class="logo_text">InfinityX</span>
             </a>
             <nav class="nav">
-                <a href="/#Features">Features</a>
-                <a href="/#Screenshots">Screenshots</a>
-                <a href="/Devices/">Devices</a>
+                <a href="./#Features">Features</a>
+                <a href="./#Screenshots">Screenshots</a>
+                <a href="./Devices/">Devices</a>
             </nav>
             <div class="header_actions">
                 <a href="https://github.com/ProjectInfinity-X" target="_blank" class="social_icon">
